@@ -1,0 +1,92 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateHobbyInput {
+  name: String!
+}
+
+input CreatePersonInput {
+  hobbies: [String!]!
+  name: String!
+}
+
+type HobbyType {
+  _id: String!
+  name: String!
+}
+
+input ListHobbyFiltersInput {
+  _id: String
+  name: String
+}
+
+input ListHobbySortsInput {
+  name: Sorts
+}
+
+input ListPersonFiltersInput {
+  _id: String
+  hobbies: [String!]
+  name: String
+}
+
+input ListPersonSortsInput {
+  name: Sorts
+}
+
+type Mutation {
+  createHobby(payload: CreateHobbyInput!): HobbyType!
+  createPerson(payload: CreatePersonInput!): PersonType!
+  deleteHobby(_id: String!): HobbyType!
+  deletePerson(_id: String!): PersonType!
+  updateHobby(payload: UpdateHobbyInput!): HobbyType!
+  updatePerson(payload: UpdatePersonInput!): PersonType!
+}
+
+type OffsetBasedPaginatedPersonType {
+  data: [PersonType!]
+  pagination: OffsetBasedPaginationOutput!
+}
+
+type OffsetBasedPaginationOutput {
+  limit: Int!
+  pages: Int!
+  skip: Int!
+  total: Int!
+}
+
+input PaginationInput {
+  limit: Int = 10
+  skip: Int = 0
+}
+
+type PersonType {
+  _id: String!
+  hobbies(filters: ListHobbyFiltersInput, populate: Boolean = false, sorts: ListHobbySortsInput): [HobbyType!]!
+  name: String!
+}
+
+type Query {
+  hobbies(filters: ListHobbyFiltersInput, sorts: ListHobbySortsInput): [HobbyType!]!
+  hobby(_id: String!): HobbyType!
+  offsetBasedPaginatedPersons(filters: ListPersonFiltersInput, pagination: PaginationInput, sorts: ListPersonSortsInput): OffsetBasedPaginatedPersonType!
+  person(_id: String!): PersonType!
+  persons(filters: ListPersonFiltersInput, pagination: PaginationInput, sorts: ListPersonSortsInput): [PersonType!]!
+}
+
+enum Sorts {
+  ASC
+  DESC
+}
+
+input UpdateHobbyInput {
+  _id: String!
+  name: String
+}
+
+input UpdatePersonInput {
+  _id: String!
+  hobbies: [String!]
+  name: String
+}
