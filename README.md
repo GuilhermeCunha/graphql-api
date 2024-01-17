@@ -1,19 +1,11 @@
-## Template
-
+## Graphql API Example 
 
 ### Features
-
--[x] GraphQl
-
--[x] Mongoose 
-
--[x] Filtragem
-
--[x] Ordenação
-
--[x] Autentificação (Firebase Authentication)
-
--[] Paginação
-
-    -[x] Offset Based
-    -[] Cursor Based
+- [x] GraphQl
+- [x] Mongoose 
+- [x] Filtering
+- [x] Ordering
+- [x] Authentication (Firebase Authentication)
+- Paginação
+    - [x] Offset Based
+    - [x] Cursor Based
