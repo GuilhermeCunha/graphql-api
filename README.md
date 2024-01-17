@@ -1,4 +1,4 @@
-## Graphql API Example 
+## Graphql API using NestJs 
 
 ### Features
 - [x] GraphQl
